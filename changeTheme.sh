@@ -9,19 +9,20 @@ printf 'Enter the path to the background you want: '
 read -r imagedir
 workdir=$PWD/shell-theme
 backgroundString="resource:///org/gnome/shell/theme/background.jpg"
+gst=/usr/share/gnome-shell/gnome-shell-theme.gresource
 
-
+# Code from GDM page from ArchLinux
 if [ ! -d ${workdir}/theme ]; then
     mkdir -p ${workdir}/theme/icons
 fi
-gst=/usr/share/gnome-shell/gnome-shell-theme.gresource
+
 for r in `gresource list $gst`; do
     gresource extract $gst $r >$workdir/${r#\/org\/gnome\/shell/}
 done
 
 cd $workdir
 #  Copy the image in the new folder
-cp $imagedir theme/;
+cp $imagedir theme/
 cd theme
 # New xml with the background
 
@@ -71,16 +72,19 @@ echo "<?xml version="1.0" encoding="UTF-8"?>
   </gresource>
 </gresources>" >> gnome-shell-theme.gresource.xml
 
+# replace the uri from the file with a new one
 sedcommand="s#$backgroundString#$imagedir#g"
 sed -i "${sedcommand}" gnome-shell.css
 
 # Compile the resource
 glib-compile-resources gnome-shell-theme.gresource.xml
 
+# Make a backup of the original theme
+if [ ! -f $gst.bak ]; then
+  sudo mv $gst $gst.bak
+
+# Copy the new theme to the location
 sudo cp gnome-shell-theme.gresource $gst
 
-cd ../..
-
-sudo rm -r shell-theme
 printf "The background is now active, all you need to do is reboot\n"
 printf "Script made by \"-C\""
