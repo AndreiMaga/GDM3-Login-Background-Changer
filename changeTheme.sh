@@ -26,6 +26,7 @@ cp $imagedir theme/
 imagedir=$(basename $imagedir)
 cd theme
 # New xml with the background
+rm gnome-shell-theme.gresource.xml
 
 echo "<?xml version="1.0" encoding="UTF-8"?>
 <gresources>
