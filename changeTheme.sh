@@ -28,7 +28,7 @@ cd theme
 
 echo "<?xml version="1.0" encoding="UTF-8"?>
 <gresources>
-  <gresource prefix="/org/gnome/shell/theme">
+  <gresource prefix=\"/org/gnome/shell/theme\">
     <file>calendar-arrow-left.svg</file>
     <file>calendar-arrow-right.svg</file>
     <file>calendar-today.svg</file>
@@ -51,7 +51,7 @@ echo "<?xml version="1.0" encoding="UTF-8"?>
     <file>logged-in-indicator.svg</file>
     <file>no-events.svg</file>
     <file>no-notifications.svg</file>
-    <file>$imagedir</file>
+    <file>${imagedir##*/}</file>
     <file>pad-osd.css</file>
     <file>page-indicator-active.svg</file>		
     <file>page-indicator-checked.svg</file>
