@@ -25,7 +25,7 @@ Feel free to improve it and open a pull request.
 ## Usage
 Please use .jpg files, it would make everything much more easyer
 
-    chmod x changeTheme.sh
+    chmod a+x changeTheme.sh
     ./changeTheme.sh
     
 ## *FAQ*
