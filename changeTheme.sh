@@ -23,6 +23,7 @@ done
 cd $workdir
 #  Copy the image in the new folder
 cp $imagedir theme/
+imagedir=$(basename $imagedir)
 cd theme
 # New xml with the background
 
@@ -51,7 +52,7 @@ echo "<?xml version="1.0" encoding="UTF-8"?>
     <file>logged-in-indicator.svg</file>
     <file>no-events.svg</file>
     <file>no-notifications.svg</file>
-    <file>${imagedir##*/}</file>
+    <file>$imagedir</file>
     <file>pad-osd.css</file>
     <file>page-indicator-active.svg</file>		
     <file>page-indicator-checked.svg</file>
@@ -82,9 +83,9 @@ glib-compile-resources gnome-shell-theme.gresource.xml
 # Make a backup of the original theme
 if [ ! -f $gst.bak ]; then
   sudo mv $gst $gst.bak
-
+fi
 # Copy the new theme to the location
 sudo cp gnome-shell-theme.gresource $gst
 
 printf "The background is now active, all you need to do is reboot\n"
-printf "Script made by \"-C\""
+printf "Script made by \"-C\"\n"
