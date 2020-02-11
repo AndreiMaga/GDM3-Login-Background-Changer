@@ -23,7 +23,7 @@ Feel free to improve it and open a pull request.
 
 
 ## Usage
-Please use .jpg files, it would make everything much more easyer
+Please use .jpg files, it would make everything much more easier
 
     chmod a+x changeTheme.sh
     ./changeTheme.sh
@@ -37,7 +37,7 @@ Please use .jpg files, it would make everything much more easyer
  The variables you need to change are `backgroundString` and `gst`.
 
 **`x.svg` was not found.**\
-I can't do anything about that, my solution is to make your own svg file with the name specified that it dosen't exist and paste it in shell-theme/theme folder.\
+I can't do anything about that, my solution was to make my own svg file with the same name and put it in shell-theme/theme folder.\
 And while inside shell-theme/theme manually running:
 
     glib-compile-resources gnome-shell-theme.gresource.xml
